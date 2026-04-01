@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Movie Watchlist Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app_container">
+        <aside class="sidebar">
+            <h2>Saved Movies</h2>
+            <ul id="saved_movies_list"></ul>
+        </aside>
+        
+        <main class="main_content">
+            <header class="search_section">
+                <h1>Your Journey of Cinema Begins Now....</h1>
+                <div class="search_box">
+                    <input type="text" id="search_input" placeholder="Search for movies..." autocomplete="off">
+                    <button id="search_btn">Search</button>
+                </div>
+            </header>
+
+            <div id="movie_results" class="movie_results hidden"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
