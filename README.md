@@ -1,6 +1,6 @@
 # 🎬 Movie Watchlist Project
 
-A sleek and interactive **Movie Watchlist Web App** built using **HTML, CSS, JavaScript, and React**. This app allows users to search for movies, save them to a personal watchlist, and even pick a random movie for their next watch session.
+A sleek and interactive **Movie Watchlist Web App** built using **HTML, CSS, and JavaScript**. This app allows users to search, filter, and sort movies, manage a personal watchlist, and even pick a random movie for their next watch session.
 
 ---
 
@@ -11,10 +11,52 @@ A sleek and interactive **Movie Watchlist Web App** built using **HTML, CSS, Jav
 * Search for movies in real-time using the **OMDb API**
 * Results update dynamically as the user types or on search click
 
+---
+
+### 🎯 Filtering
+
+* Filter movies based on:
+
+  * Year
+  * Type (movie, series, episode)
+* Helps users quickly refine search results
+
+---
+
+### 🔃 Sorting
+
+* Sort movies by:
+
+  * Title (A–Z / Z–A)
+  * Year (Newest / Oldest)
+* Enhances browsing and usability
+
+---
+
 ### ⭐ Watchlist Toggle
 
 * Add or remove movies from your watchlist with a single click
-* Each movie card includes a toggle button
+* Each movie card includes an interactive toggle button
+
+---
+
+### 🎮 Button Interactions
+
+* Smooth and responsive button actions:
+
+  * Add/Remove from watchlist
+  * Search trigger
+  * Random movie picker 🎲
+* Provides instant feedback to users
+
+---
+
+### 🌗 Dark / Light Mode
+
+* Toggle between **Dark Mode 🌙** and **Light Mode ☀️**
+* Improves user experience and accessibility
+
+---
 
 ### 📭 Empty States
 
@@ -23,28 +65,32 @@ A sleek and interactive **Movie Watchlist Web App** built using **HTML, CSS, Jav
   * No movies are found
   * Watchlist is empty
 
-### 🎨 Modern UI
+---
 
-* Dark theme inspired by platforms like Disney+ and HBO Max
-* Sticky sidebar for "Saved Movies"
-* Smooth and responsive layout
-
-### 🎲 Optional Feature: Random Movie Night
+### 🎲 Random Movie Night
 
 * Picks a random movie from your watchlist
 * Perfect for indecisive movie nights 🍿
 
 ---
 
+## 🎨 UI Highlights
+
+* Modern and responsive design
+* Sticky sidebar for "Saved Movies"
+* Clean card-based layout
+* Smooth transitions and animations
+
+---
+
 ## 🛠️ Tech Stack
 
 * **Frontend:** HTML, CSS, JavaScript
-* **Framework:** React
 * **APIs Used:**
 
-  * OMDb API → https://www.omdbapi.com/
-  * TMDB API → https://developer.themoviedb.org/docs/getting-started
-  * Watchmode API → https://api.watchmode.com/
+  * OMDb API → [https://www.omdbapi.com/](https://www.omdbapi.com/)
+  * TMDB API → [https://developer.themoviedb.org/docs/getting-started](https://developer.themoviedb.org/docs/getting-started)
+  * Watchmode API → [https://api.watchmode.com/](https://api.watchmode.com/)
 
 ---
 
@@ -57,17 +103,11 @@ git clone https://github.com/your-username/movie-watchlist.git
 cd movie-watchlist
 ```
 
-2. Install dependencies:
+2. Open the project:
 
-```bash
-npm install
-```
-
-3. Start the development server:
-
-```bash
-npm start
-```
+* Simply open `index.html` in your browser
+  **OR**
+* Use Live Server (recommended in VS Code)
 
 ---
 
@@ -79,12 +119,14 @@ npm start
   * TMDB API
   * Watchmode API
 
-* Create a `.env` file in the root directory:
+* Create a `config.js` (or similar) file:
 
-```env
-REACT_APP_OMDB_API_KEY=your_api_key
-REACT_APP_TMDB_API_KEY=your_api_key
-REACT_APP_WATCHMODE_API_KEY=your_api_key
+```javascript
+const API_KEYS = {
+  OMDB: "your_api_key",
+  TMDB: "your_api_key",
+  WATCHMODE: "your_api_key"
+};
 ```
 
 ---
@@ -92,27 +134,23 @@ REACT_APP_WATCHMODE_API_KEY=your_api_key
 ## 📂 Project Structure
 
 ```
-/src
-  /components
-    MovieCard.js
-    SearchBar.js
-    WatchlistSidebar.js
-  /pages
-    Home.js
-  /utils
-    api.js
-  App.js
-  index.js
+/project-folder
+  index.html
+  style.css
+  script.js
+  /components (optional JS modules)
+  /assets
 ```
 
 ---
 
 ## 💡 Future Enhancements
 
-* Add movie details page (cast, ratings, trailers)
-* Integrate streaming availability using Watchmode API
-* Add user authentication
-* Persist watchlist using local storage or database
+* Movie details popup/page (cast, ratings, trailers)
+* Streaming availability integration
+* Save watchlist using LocalStorage
+* Pagination for search results
+* PWA support (installable app)
 
 ---
 
@@ -121,9 +159,9 @@ REACT_APP_WATCHMODE_API_KEY=your_api_key
 To practice:
 
 * API integration
-* React state management
+* DOM manipulation
 * UI/UX design
-* Component-based architecture
+* JavaScript logic building
 
 ---
 
@@ -148,10 +186,4 @@ This project is open-source and available under the MIT License.
 ---
 
 **Happy Coding & Enjoy Your Movie Nights! 🍿**
-
-
-
-
-
-
 
