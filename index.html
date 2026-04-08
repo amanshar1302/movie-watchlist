@@ -3,24 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Movie Watchlist Project</title>
+    <title>Cinephile Corner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app_container">
         <aside class="sidebar">
-            <h2>Saved Movies</h2>
-            <ul id="saved_movies_list"></ul>
+            <div class="brand">
+                <h1 class="brand_name">Cinephile Corner</h1>
+                <span class="brand_tag">YOUR CINEMA JOURNAL</span>
+            </div>
+
+            <div class="saved_section">
+                <h2 class="saved_heading">SAVED MOVIES</h2>
+                <input type="text" id="saved_search" placeholder="Search saved..." autocomplete="off">
+                <ul id="saved_movies_list"></ul>
+            </div>
+
+            <div class="sidebar_footer">
+                <span id="sidebar_stats">0 saved · 0 watchlist</span>
+                <button id="theme_toggle" title="Toggle Theme">🌙</button>
+            </div>
         </aside>
-        
+
         <main class="main_content">
-            <header class="search_section">
-                <h1>Your Journey of Cinema Begins Now....</h1>
+            <div class="top_bar">
                 <div class="search_box">
                     <input type="text" id="search_input" placeholder="Search for movies..." autocomplete="off">
                     <button id="search_btn">Search</button>
                 </div>
-            </header>
+            </div>
+
+            <section class="hero_section" id="hero_section">
+                <div class="hero_icon">🎬</div>
+                <h2 class="hero_title">Your journey of cinema begins now</h2>
+                <p class="hero_sub">Discover, save, and revisit your favourite films.</p>
+                <div class="hero_hints">
+                    
+                </div>
+            </section>
+
+            <div id="controls_bar" class="controls_bar hidden">
+                <div class="control_group">
+                    <label>Sort</label>
+                    <select id="sort_select">
+                        <option value="default">Default</option>
+                        <option value="az">A → Z</option>
+                        <option value="za">Z → A</option>
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+                <div class="control_group">
+                    <label>Year</label>
+                    <input type="number" id="year_from" placeholder="From" min="1900" max="2099">
+                    <span class="dash">–</span>
+                    <input type="number" id="year_to" placeholder="To" min="1900" max="2099">
+                </div>
+                <div class="control_actions">
+                    <button id="filter_btn">Apply</button>
+                    <button id="clear_filter_btn">Clear</button>
+                </div>
+            </div>
+
+            <p id="results_count" class="results_count hidden"></p>
 
             <div id="movie_results" class="movie_results hidden"></div>
         </main>
