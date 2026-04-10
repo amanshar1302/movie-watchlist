@@ -1,489 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #0d0d0d;
-    color: #e0e0e0;
-    min-height: 100vh;
-}
-.app_container {
-    display: flex;
-    min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.sidebar {
-    width: 300px;
-    background-color: #161616;
-    border-right: 1px solid #2a2a2a;
-    padding: 2rem 1.5rem;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
+.landing {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
-.brand {
-    margin-bottom: 2rem;
+
+.bg-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5) saturate(1.2);
 }
-.brand_name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #e0e0e0;
-    letter-spacing: 0.5px;
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(13,13,13,0.4) 0%, rgba(13,13,13,0.2) 50%, rgba(13,13,13,0.6) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  padding: 2rem;
 }
-.brand_tag {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #d35400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+
+.brand_badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #d35400;
+  background: rgba(211, 84, 0, 0.1);
+  border: 1px solid rgba(211, 84, 0, 0.25);
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  animation: fadeDown 0.8s ease-out;
 }
-.saved_section {
-    flex: 1;
+
+.overlay h1 {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  letter-spacing: -1px;
+  animation: fadeUp 0.8s ease-out 0.2s both;
 }
-.saved_heading {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #666;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.8rem;
+
+.tagline {
+  color: #ccc;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+  font-size: 1.1rem;
+  font-weight: 400;
+  max-width: 460px;
+  line-height: 1.6;
+  animation: fadeUp 0.8s ease-out 0.4s both;
 }
-#saved_search {
-    width: 100%;
-    padding: 0.7rem 1rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    outline: none;
-    background-color: #2a2a2a;
-    color: #ccc;
+
+.btn {
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 12px;
+  background-color: #d35400;
+  color: #fff;
+  letter-spacing: 0.5px;
+  transition: transform 0.25s, box-shadow 0.25s, background-color 0.25s;
+  animation: fadeUp 0.8s ease-out 0.6s both;
 }
-#saved_search::placeholder {
-    color: #666;
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(211, 84, 0, 0.35);
+  background-color: #e05d00;
 }
-#saved_movies_list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+
+.btn:active {
+  transform: translateY(0);
 }
-.saved_movie_item {
-    padding: 0.7rem 0.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    position: relative;
-    transition: background-color 0.2s;
+
+.features_row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+  animation: fadeUp 0.8s ease-out 0.8s both;
 }
-.saved_movie_item:hover {
-    background-color: #222;
+
+.feature_pill {
+  padding: 0.45rem 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #aaa;
+  font-weight: 500;
+  transition: border-color 0.25s, color 0.25s;
 }
-.saved_color {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    flex-shrink: 0;
+
+.feature_pill:hover {
+  border-color: rgba(211, 84, 0, 0.4);
+  color: #d35400;
 }
-.saved_info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    flex: 1;
-    min-width: 0;
-}
-.saved_title {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: #e0e0e0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.saved_year {
-    font-size: 0.75rem;
-    color: #888;
-}
-.remove_btn {
-    position: absolute;
-    top: 50%;
-    right: 0.3rem;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 0.8rem;
-    cursor: pointer;
-    color: #555;
+
+@keyframes fadeUp {
+  from {
     opacity: 0;
-    transition: opacity 0.2s, color 0.2s;
-}
-.saved_movie_item:hover .remove_btn {
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
-}
-.remove_btn:hover {
-    color: #e74c3c;
-}
-.sidebar_footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid #2a2a2a;
-    margin-top: 1rem;
-}
-#sidebar_stats {
-    font-size: 0.8rem;
-    color: #d35400;
-    font-weight: 500;
-}
-#theme_toggle {
-    background: none;
-    border: 1px solid #333;
-    border-radius: 6px;
-    padding: 0.3rem 0.5rem;
-    cursor: pointer;
-    font-size: 0.9rem;
+    transform: translateY(0);
+  }
 }
 
-.main_content {
-    flex: 1;
-    padding: 2rem 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 1400px;
-}
-.top_bar {
-    display: flex;
-    align-items: center;
-}
-.search_box {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    width: 100%;
-}
-.search_box input {
-    flex: 1;
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    padding: 0.9rem 1.2rem;
-    border-radius: 10px;
-    color: #e0e0e0;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s;
-}
-.search_box input:focus {
-    border-color: #555;
-}
-.search_box input::placeholder {
-    color: #555;
-}
-.search_box button {
-    background-color: #222;
-    color: #e0e0e0;
-    border: 1px solid #444;
-    padding: 0.9rem 1.8rem;
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.2s;
-}
-.search_box button:hover {
-    background-color: #333;
-}
-.hero_section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0.8rem;
-    min-height: 50vh;
-}
-.hero_section.compact {
-    flex: 0;
-    min-height: auto;
-    align-items: flex-start;
-    text-align: left;
-    gap: 0.3rem;
-}
-.hero_icon {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-}
-.hero_section.compact .hero_icon {
-    display: none;
-}
-.hero_title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #e0e0e0;
-    margin-bottom: 0.1rem;
-}
-.hero_section.compact .hero_title {
-    font-size: 1.4rem;
-}
-.hero_sub {
-    font-size: 0.95rem;
-    color: #777;
-}
-.hero_hints {
-    display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 1rem;
-}
-.hero_section.compact .hero_hints {
-    display: none;
-}
-.hint_tag {
-    padding: 0.5rem 1rem;
-    background-color: #1e1e1e;
-    border: 1px solid #2a2a2a;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: #888;
-}
-
-.controls_bar {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.control_group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-.control_group label {
-    font-size: 0.8rem;
-    color: #777;
-    font-weight: 500;
-}
-.controls_bar select {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #333;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    outline: none;
-    background-color: #1e1e1e;
-    color: #ccc;
-    appearance: auto;
-    cursor: pointer;
-}
-.controls_bar input[type="number"] {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #333;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    outline: none;
-    background-color: #1e1e1e;
-    color: #ccc;
-}
-.controls_bar input[type="number"]::placeholder {
-    color: #555;
-}
-.dash {
-    color: #555;
-    font-size: 0.9rem;
-}
-.control_actions {
-    display: flex;
-    gap: 0.5rem;
-}
-.control_actions button {
-    padding: 0.6rem 1.4rem;
-    border: 1px solid #444;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    background-color: #222;
-    color: #ccc;
-    font-weight: 500;
-    transition: background-color 0.2s;
-}
-.control_actions button:hover {
-    background-color: #333;
-}
-.results_count {
-    font-size: 0.9rem;
-    color: #d35400;
-    font-weight: 600;
-}
-.results_count span {
-    color: #777;
-    font-weight: 400;
-}
-.movie_results {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
-.movie_card {
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #2a2a2a;
-    transition: transform 0.2s, border-color 0.2s;
-}
-.movie_card:hover {
-    transform: translateY(-3px);
-    border-color: #444;
-}
-.movie_poster {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-}
-.movie_info {
-    padding: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    flex: 1;
-}
-.movie_title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #e0e0e0;
-}
-.movie_year {
-    color: #888;
-    font-size: 0.85rem;
-}
-.card_actions {
-    margin-top: auto;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    padding-top: 0.5rem;
-}
-.like_btn {
-    background: none;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 0.5rem 0.6rem;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: transform 0.2s, border-color 0.2s;
-}
-.like_btn:hover {
-    transform: scale(1.1);
-}
-.like_btn.liked {
-    border-color: #e74c3c;
-}
-.save_btn {
-    flex: 1;
-    background-color: #222;
-    color: #ccc;
-    border: 1px solid #444;
-    padding: 0.5rem;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.2s;
-}
-.save_btn:hover {
-    background-color: #333;
-}
-.save_btn.saved {
-    background-color: #1a3a1a;
-    border-color: #2d5a2d;
-    color: #6abf6a;
-}
-.hidden {
-    display: none !important;
-}
-
-body.light {
-    background-color: #f5f0e8;
-    color: #222;
-}
-body.light .sidebar {
-    background-color: #fff;
-    border-right-color: #ddd;
-}
-body.light .brand_name {
-    color: #222;
-}
-body.light .saved_heading {
-    color: #999;
-}
-body.light #saved_search {
-    background-color: #eee;
-    color: #333;
-}
-body.light .saved_movie_item:hover {
-    background-color: #f0f0f0;
-}
-body.light .saved_title {
-    color: #222;
-}
-body.light .saved_year {
-    color: #999;
-}
-body.light .sidebar_footer {
-    border-top-color: #ddd;
-}
-body.light #theme_toggle {
-    border-color: #ccc;
-}
-body.light .search_box input {
-    background-color: #fff;
-    border-color: #ccc;
-    color: #222;
-}
-body.light .search_box button {
-    background-color: #222;
-    color: #fff;
-    border-color: #222;
-}
-body.light .hero_title {
-    color: #222;
-}
-body.light .hero_sub {
-    color: #888;
-}
-body.light .controls_bar select,
-body.light .controls_bar input[type="number"] {
-    background-color: #fff;
-    border-color: #ccc;
-    color: #333;
-}
-body.light .control_actions button {
-    background-color: #eee;
-    border-color: #ccc;
-    color: #333;
-}
-body.light .movie_card {
-    background-color: #fff;
-    border-color: #ddd;
-}
-body.light .movie_title {
-    color: #222;
-}
-body.light .like_btn {
-    border-color: #ccc;
-}
-body.light .save_btn {
-    background-color: #eee;
-    border-color: #ccc;
-    color: #333;
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
